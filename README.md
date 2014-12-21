@@ -173,3 +173,5 @@ Check out the other packages at [my blog site](http://the-matrix.github.io/packa
 
 V0...  pre releases
 
+V1.0.0 First version
+
