@@ -19,7 +19,7 @@ The library is released under the [GNU GPL V3 or later license](http://www.gnu.o
 
 ## Why?
 
-Zend/Permissions/Acl is great and lightweight way of providing access control to your
+Zend/Permissions/Acl is a great and lightweight way of providing access control to your
 applications, but it can be a PITA to configure using the native command set. As
 it happens, it is ideally placed, because of its structure, to be driven by an XML
 configuration.  
