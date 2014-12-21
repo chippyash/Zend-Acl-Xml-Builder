@@ -20,9 +20,9 @@ The library is released under the [GNU GPL V3 or later license](http://www.gnu.o
 ## Why?
 
 Zend/Permissions/Acl is a great and lightweight way of providing access control to your
-applications, but it can be a PITA to configure using the native command set. As
-it happens, it is ideally placed, because of its structure, to be driven by an XML
-configuration.  
+applications, but it can be a [PITA](http://www.urbandictionary.com/define.php?term=pita) 
+to configure using the native command set. As it happens, it is ideally placed, 
+because of its structure, to be driven by an XML configuration.  
 
 This also means that the ACL can be managed by some third party application or service.  
 It is not beyond the wit of most to be able to write an XSL translation for 
@@ -49,13 +49,13 @@ In essence you need to do two things
 2. Tell the Director where the XML is
 
 This library depends on the [Builder Pattern](https://github.com/chippyash/Builder-Pattern)
-and in turn the [Strong Type](https://github.com/chippyash/Strong-Type) libraries.
+and the [Strong Type](https://github.com/chippyash/Strong-Type) libraries.
 
 ### Defining the XML
 
-For the canonical truth, study the XSD file located in src/chippyash/Zend/Acl/Xml/xsd.
+For the canonical truth, study the XSD file located in [src/chippyash/Zend/Acl/Xml/xsd](https://github.com/chippyash/Zend-Acl-Xml-Builder/blob/master/src/chippyash/Zend/Acl/Xml/xsd/zendacl.xsd)
 
-There is also an example XML file used for testing located in test/src/chippyash/Zend/Acl/Xml/fixtures.
+There is also an example XML file used for testing located in [test/src/chippyash/Zend/Acl/Xml/fixtures](https://github.com/chippyash/Zend-Acl-Xml-Builder/blob/master/test/src/chippyash/Zend/Acl/Xml/fixtures/test.xml)
 
 Essentially, Zend-ACL defines the ACL in three parts:
 
@@ -95,7 +95,7 @@ resources may only have a single parent.
     - resources: string: default = "*". comma separated list of resource names that the rule applies to
     - assertion: string: default = none. Fully namespaced class providing the assertion.  
 The class must exist and implement the Zend\Permissions\Acl\Assertion\AssertionInterface.
-You can find an example in test/src/chippyash/Zend/Acl/Xml/Stubs
+You can find an example in [test/src/chippyash/Zend/Acl/Xml/Stubs](https://github.com/chippyash/Zend-Acl-Xml-Builder/blob/master/test/src/chippyash/Zend/Acl/Xml/Stubs/TestAssertionStub.php)
 - a rule can contain optional \<privilege\> elements. Each \<privilege\> element contains
 the name of an arbitrary privilege.
 
