@@ -3,7 +3,7 @@
 ## Quality Assurance
 
 [![Build Status](https://travis-ci.org/chippyash/Zend-Acl-Xml-Builder.svg?branch=master)](https://travis-ci.org/chippyash/Zend-Acl-Xml-Builder)
-[![Coverage Status](https://coveralls.io/repos/chippyash/Zend-Acl-Xml-Builder/badge.png)](https://coveralls.io/r/chippyash/Zend-Acl-Xml-Builder)
+[![Coverage Status](https://img.shields.io/coveralls/chippyash/Zend-Acl-Xml-Builder.svg)](https://coveralls.io/r/chippyash/Zend-Acl-Xml-Builder?branch=master)
 
 Certified for PHP 5.5+
 
