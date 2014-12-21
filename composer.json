@@ -1,0 +1,30 @@
+{
+    "name": "chippyash/zend-acl-xml-builder",
+    "description": "Configuration of Zend 2 Acl instances using XML",
+    "homepage" : "http://the-matrix.github.io/",
+    "license": "GPL 3.0",
+    "keywords": ["zend","acl","builder","configurator","xml"],    
+    "authors": [
+        {
+            "name": "Ashley Kitson",
+            "email": "ashley@zf4.biz"
+        }
+    ],
+    "require": {
+        "php":">=5.5",
+        "zendframework/zend-permissions-acl":"~2.3",
+        "chippyash/strong-type": "~2.0",
+        "chippyash/builderpattern": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.3.0",
+        "satooshi/php-coveralls" : "dev-master",
+        "phpunit/phpunit-skeleton-generator": "~2.0.1",
+        "apigen/apigen": "2.8.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "chippyash\\Zend\\Acl\\": "src"
+        }
+    }
+}

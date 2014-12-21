@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="zendacl.xsd">
+    <!-- No roles defined - will fail validation-->
+    <resources>
+        <resource>login</resource>
+        <resource type="chippyash\Test\Zend\Acl\Xml\Stubs\TestResourceStub">logout</resource>
+        <resource type="GenericResource">dashboard</resource>
+        <resource parent="dashboard">edit</resource>
+    </resources>
+    <rules>
+        <rule type="DENY"/>
+        <rule type="ALLOW" roles="*" resources="login" assertion="chippyash\Test\Zend\Acl\Xml\Stubs\TestAssertionStub"/>
+        <rule type="ALLOW" roles="user,superadmin">
+            <privilege>GET</privilege>
+            <privilege>POST</privilege>
+        </rule>
+    </rules>
+</acl>

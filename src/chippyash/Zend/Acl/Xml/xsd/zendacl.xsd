@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified">
+
+    <xs:element name="acl">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="roles" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="role" type="roleType" minOccurs="1"
+                                maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="resources" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="resource" type="resourceType" minOccurs="1"
+                                maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="rules" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="rule" type="ruleType" minOccurs="1"
+                                maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="roleType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="type" type="xs:string" default="GenericRole" use="optional"/>
+                <xs:attribute name="parents" type="xs:string" use="optional"/>                            
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="resourceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="type" type="xs:string" default="GenericResource" use="optional"/>
+                <xs:attribute name="parent" type="xs:string" use="optional"/>                            
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="ruleType">
+        <xs:sequence>
+            <xs:element name="privilege" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="type" use="required" type="accessType"/>
+        <xs:attribute name="roles" type="xs:string" use="optional" default="*"/>
+        <xs:attribute name="resources" type="xs:string" use="optional" default="*"/>
+        <xs:attribute name="assertion" type="xs:string" use="optional"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="accessType">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="ALLOW"/>
+            <xs:enumeration value="DENY"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>
