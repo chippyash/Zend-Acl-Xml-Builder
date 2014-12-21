@@ -176,3 +176,5 @@ V0...  pre releases
 
 V1.0.0 First version
 
+V1.0.1 Update XML and schema to use namespacing and referencing
+

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified">
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    targetNamespace="http://zf4.biz/zendacl" xmlns="http://zf4.biz/zendacl">
 
     <xs:element name="acl">
         <xs:complexType>
@@ -37,20 +38,20 @@
         <xs:simpleContent>
             <xs:extension base="xs:string">
                 <xs:attribute name="type" type="xs:string" default="GenericRole" use="optional"/>
-                <xs:attribute name="parents" type="xs:string" use="optional"/>                            
+                <xs:attribute name="parents" type="xs:string" use="optional"/>
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-    
+
     <xs:complexType name="resourceType">
         <xs:simpleContent>
             <xs:extension base="xs:string">
                 <xs:attribute name="type" type="xs:string" default="GenericResource" use="optional"/>
-                <xs:attribute name="parent" type="xs:string" use="optional"/>                            
+                <xs:attribute name="parent" type="xs:string" use="optional"/>
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-    
+
     <xs:complexType name="ruleType">
         <xs:sequence>
             <xs:element name="privilege" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
@@ -60,12 +61,12 @@
         <xs:attribute name="resources" type="xs:string" use="optional" default="*"/>
         <xs:attribute name="assertion" type="xs:string" use="optional"/>
     </xs:complexType>
-    
+
     <xs:simpleType name="accessType">
         <xs:restriction base="xs:token">
             <xs:enumeration value="ALLOW"/>
             <xs:enumeration value="DENY"/>
         </xs:restriction>
     </xs:simpleType>
-    
+
 </xs:schema>

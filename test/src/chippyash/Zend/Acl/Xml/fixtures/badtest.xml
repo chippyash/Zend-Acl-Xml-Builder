@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<acl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="zendacl.xsd">
+<acl xmlns="http://zf4.biz/zendacl"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://zf4.biz/zendacl ../../../../../../../src/chippyash/Zend/Acl/Xml/xsd/zendacl.xsd">
     <!-- No roles defined - will fail validation-->
     <resources>
         <resource>login</resource>
