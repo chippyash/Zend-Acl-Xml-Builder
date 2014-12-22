@@ -24,7 +24,7 @@ class RuleBuilder extends AbstractAclItemBuilder
      */
     public function buildItem()
     {
-        $this->addRules($this->xquery->query('/acl/rules/rule'));
+        $this->addRules($this->dom->getElementsByTagName('rule'));
 
         return true;
     }

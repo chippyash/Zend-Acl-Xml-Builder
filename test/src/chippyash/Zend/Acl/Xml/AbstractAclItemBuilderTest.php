@@ -20,11 +20,10 @@ class AbstractAclItemBuilderTest extends \PHPUnit_Framework_TestCase {
      */
     protected function setUp() {
         $dom = $this->getMock('DOMDocument');
-        $xquery = $this->getMock('DOMXPath',null,[$dom]);
         $acl = $this->getMock('Zend\Permissions\Acl\Acl');
         $this->object = $this->getMockForAbstractClass(
                 'chippyash\Zend\Acl\Xml\AbstractAclItemBuilder',
-                [$xquery, $acl],'',true);
+                [$dom, $acl],'',true);
     }
 
     public function testBuildItemReturnsBoolean()

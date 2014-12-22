@@ -34,12 +34,12 @@ class RuleBuilderTest extends \PHPUnit_Framework_TestCase {
     protected function setUp() {
         $this->acl = new Acl();
         $dom = new \DOMDocument();
-        $dom->load(__DIR__ . '/fixtures/test.xml');
-        $xquery = new \DOMXPath($dom);
-        $this->object = new RuleBuilder($xquery, $this->acl);
-        $roleBuilder = new RoleBuilder($xquery, $this->acl);
+        $dom->validateOnParse = true;
+        $dom->load(__DIR__ . '/fixtures/test.xml', LIBXML_NONET | (defined('LIBXML_COMPACT') ? LIBXML_COMPACT : 0));
+        $this->object = new RuleBuilder($dom, $this->acl);
+        $roleBuilder = new RoleBuilder($dom, $this->acl);
         $roleBuilder->build();
-        $resourceBuilder = new ResourceBuilder($xquery, $this->acl);
+        $resourceBuilder = new ResourceBuilder($dom, $this->acl);
         $resourceBuilder->build();
     }
 

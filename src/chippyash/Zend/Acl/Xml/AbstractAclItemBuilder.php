@@ -18,9 +18,9 @@ use chippyash\BuilderPattern\AbstractBuilder;
 abstract class AbstractAclItemBuilder extends AbstractBuilder
 {
     /**
-     * @var \DOMXpath
+     * @var \DOMDocument
      */
-    protected $xquery;
+    protected $dom;
 
     /**
      * @var Zend\Permissions\Acl\Acl
@@ -30,12 +30,12 @@ abstract class AbstractAclItemBuilder extends AbstractBuilder
     /**
      * Constructor
      *
-     * @param \DOMXPath $xquery
+     * @param \DOMDocument $xquery
      * @param AclInterface $acl
      */
-    public function __construct(\DOMXPath $xquery, Acl $acl)
+    public function __construct(\DOMDocument $dom, Acl $acl)
     {
-        $this->xquery = $xquery;
+        $this->dom = $dom;
         $this->acl = $acl;
         parent::__construct();
     }

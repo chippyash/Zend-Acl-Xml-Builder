@@ -23,7 +23,7 @@ class RoleBuilder extends AbstractAclItemBuilder
      */
     public function buildItem()
     {
-        $this->addRoles($this->xquery->query('/acl/roles/role'));
+        $this->addRoles($this->dom->getElementsByTagName('role'));
 
         return true;
     }

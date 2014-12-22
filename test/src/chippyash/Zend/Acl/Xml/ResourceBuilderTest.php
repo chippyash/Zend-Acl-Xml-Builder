@@ -29,9 +29,9 @@ class ResourceBuilderTest extends \PHPUnit_Framework_TestCase {
     protected function setUp() {
         $this->acl = new Acl();
         $dom = new \DOMDocument();
-        $dom->load(__DIR__ . '/fixtures/test.xml');
-        $xquery = new \DOMXPath($dom);
-        $this->object = new ResourceBuilder($xquery, $this->acl);
+        $dom->validateOnParse = true;
+        $dom->load(__DIR__ . '/fixtures/test.xml', LIBXML_NONET | (defined('LIBXML_COMPACT') ? LIBXML_COMPACT : 0));
+        $this->object = new ResourceBuilder($dom, $this->acl);
     }
 
     public function testBuildItemWillAddResourcesToAcl()

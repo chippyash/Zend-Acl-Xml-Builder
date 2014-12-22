@@ -23,7 +23,7 @@ class ResourceBuilder extends AbstractAclItemBuilder
      */
     public function buildItem()
     {
-        $this->addResources($this->xquery->query('/acl/resources/resource'));
+        $this->addResources($this->dom->getElementsByTagName('resource'));
 
         return true;
     }

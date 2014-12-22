@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified">
-
+<xs:schema 
+    xmlns="http://schema.zf4.biz/schema/zendacl"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://schema.zf4.biz/schema/zendacl"
+    elementFormDefault="qualified"
+    >
+    <xs:annotation>
+        <xs:documentation>
+            <![CDATA[
+      Zend ACL XML Services Schema, version 1.0
+      Authors: Ashley Kitson
+      
+      This defines a way to describe Zend\Permissions\ACLs.
+    ]]></xs:documentation>
+    </xs:annotation>
     <xs:element name="acl">
+        <xs:annotation>
+            <xs:documentation>
+                Root element of definition
+            </xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="roles" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Containing element for roles
+                        </xs:documentation>
+                    </xs:annotation>
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="role" type="roleType" minOccurs="1"
@@ -14,6 +36,11 @@
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="resources" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Containing element for resources
+                        </xs:documentation>
+                    </xs:annotation>
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="resource" type="resourceType" minOccurs="1"
@@ -22,6 +49,11 @@
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="rules" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Containing element for rules
+                        </xs:documentation>
+                    </xs:annotation>                    
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="rule" type="ruleType" minOccurs="1"
@@ -34,6 +66,11 @@
     </xs:element>
 
     <xs:complexType name="roleType">
+        <xs:annotation>
+            <xs:documentation>
+                Definition of a role
+            </xs:documentation>
+        </xs:annotation>
         <xs:simpleContent>
             <xs:extension base="xs:string">
                 <xs:attribute name="type" type="xs:string" default="GenericRole" use="optional"/>
@@ -43,6 +80,11 @@
     </xs:complexType>
 
     <xs:complexType name="resourceType">
+        <xs:annotation>
+            <xs:documentation>
+                Definition of a resource
+            </xs:documentation>
+        </xs:annotation>
         <xs:simpleContent>
             <xs:extension base="xs:string">
                 <xs:attribute name="type" type="xs:string" default="GenericResource" use="optional"/>
@@ -52,8 +94,19 @@
     </xs:complexType>
 
     <xs:complexType name="ruleType">
+        <xs:annotation>
+            <xs:documentation>
+                Definition of a rule
+            </xs:documentation>
+        </xs:annotation>
         <xs:sequence>
-            <xs:element name="privilege" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="privilege" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        A role may contain zero or more privileges
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
         <xs:attribute name="type" use="required" type="accessType"/>
         <xs:attribute name="roles" type="xs:string" use="optional" default="*"/>
@@ -62,6 +115,11 @@
     </xs:complexType>
 
     <xs:simpleType name="accessType">
+        <xs:annotation>
+            <xs:documentation>
+                Role access type enumeration
+            </xs:documentation>
+        </xs:annotation>
         <xs:restriction base="xs:token">
             <xs:enumeration value="ALLOW"/>
             <xs:enumeration value="DENY"/>

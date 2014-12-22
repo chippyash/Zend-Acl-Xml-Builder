@@ -33,11 +33,11 @@ class AclBuilder extends AbstractBuilder
         parent::__construct();
 
         $xsdFile = __DIR__ . '/xsd/zendacl.xsd';
-        $this->xquery = $this->loadDefinition($xmlFile(), $xsdFile);
+        $this->xml = $this->loadDefinition($xmlFile(), $xsdFile);
         $this->acl = $acl;
-        $this->roles = new RoleBuilder($this->xquery, $this->acl);
-        $this->resources = new ResourceBuilder($this->xquery, $this->acl);
-        $this->rules = new RuleBuilder($this->xquery, $this->acl);
+        $this->roles = new RoleBuilder($this->xml, $this->acl);
+        $this->resources = new ResourceBuilder($this->xml, $this->acl);
+        $this->rules = new RuleBuilder($this->xml, $this->acl);
     }
 
     /**
@@ -46,7 +46,7 @@ class AclBuilder extends AbstractBuilder
      * @param string $xmlFile
      * @param string $xsdFile
      *
-     * @return \DOMXPath
+     * @return \DOMDocument
      *
      * @throws AclBuilderBuilderException
      */
@@ -57,7 +57,8 @@ class AclBuilder extends AbstractBuilder
         }
 
         $defDom = new \DOMDocument();
-        $defDom->load($xmlFile);
+        $defDom->validateOnParse = true;
+        $defDom->load($xmlFile, LIBXML_NONET | (defined('LIBXML_COMPACT') ? LIBXML_COMPACT : 0));
         $prevSetting = \libxml_use_internal_errors(true);
         if (!$defDom->schemaValidate($xsdFile)) {
             $errors = \libxml_get_errors();
@@ -69,7 +70,7 @@ class AclBuilder extends AbstractBuilder
         }
         \libxml_use_internal_errors($prevSetting);
 
-        return new \DOMXPath($defDom);
+        return $defDom;
     }
 
     /**
@@ -78,7 +79,7 @@ class AclBuilder extends AbstractBuilder
     protected function setBuildItems()
     {
         $this->buildItems = [
-            'xquery' => null,
+            'xml' => null,
             'acl' => null,
             'roles' => null,
             'resources' => null,
