@@ -58,6 +58,24 @@ For the canonical truth, study the XSD file located in [src/chippyash/Zend/Acl/X
 
 There is also an example XML file used for testing located in [test/src/chippyash/Zend/Acl/Xml/fixtures](https://github.com/chippyash/Zend-Acl-Xml-Builder/blob/master/test/src/chippyash/Zend/Acl/Xml/fixtures/test.xml)
 
+The XSD namespace is http://schema.zf4.biz/schema/zendacl. It is publicly available at the same url.
+
+Your XML file should be defined as 
+
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;acl xmlns="http://schema.zf4.biz/schema/zendacl"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://schema.zf4.biz/schema/zendacl http://schema.zf4.biz/schema/zendacl"
+     &gt;
+&lt;/acl&gt;
+</pre>
+
+NB. you can replace the second part of the xsi:schemaLocation attribute to point at
+a local disk version of the XSD if you want to tinker with the XSD. e.g.
+
+<code>xsi:schemaLocation="http://schema.zf4.biz/schema/zendacl ../../zendacl.xsd"</code>
+
 Essentially, Zend-ACL defines the ACL in three parts:
 
 * Roles
@@ -175,5 +193,7 @@ Check out the other packages at [my blog site](http://the-matrix.github.io/packa
 V0...  pre releases
 
 V1.0.0 First version
+
+V1.1.0 New feature: Namespaced the XSD and placed on public server
 
 
