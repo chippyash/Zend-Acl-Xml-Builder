@@ -36,7 +36,6 @@ Down the road, I can see:
 
 - taking XML content as input so the builder can be chained into a sequence of events
 - adding caching as an option
-- providing the XSD as a publicly available namespace
 - tighten up the XSD to prevent input errors
 
 ## How
