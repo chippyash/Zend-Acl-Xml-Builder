@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acl xmlns="http://schema.zf4.biz/schema/zendacl"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://schema.zf4.biz/schema/zendacl http://schema.zf4.biz/schema/zendacl"
+     >
+    <!-- gets imported by testimported.xml -->
+    <roles>
+        <role type="GenericRole">guest</role>
+    </roles>
+    <resources>
+        <resource>foo</resource>
+    </resources>
+    <rules>
+        <rule type="ALLOW" roles="guest" resources="foo"/>
+    </rules>
+</acl>

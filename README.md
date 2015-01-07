@@ -31,12 +31,9 @@ to be able then to control the ACL from your organisation's LDAP servers.
 
 ## When
 
-The current library simply handles reading an XML file and returning an ACL.
-Down the road, I can see:
-
-- taking XML content as input so the builder can be chained into a sequence of events
-- adding caching as an option
-- tighten up the XSD to prevent input errors
+The current library handles reading nested XML files (or content) and returning an ACL.
+If you'd like new features, please suggest them in the issues tracker, or better
+still, fork the lib and issue a pull request (but please don't forget the unit tests!)
 
 ## How
 
@@ -117,19 +114,54 @@ You can find an example in [test/src/chippyash/Zend/Acl/Xml/Stubs](https://githu
 - a rule can contain optional \<privilege\> elements. Each \<privilege\> element contains
 the name of an arbitrary privilege.
 
+#### Importing definitions
+
+You can import other ACL definitions into your definition by using the 
+
+<pre>
+    &lt;imports&gt;
+        &lt;import&gt;[path_to_file/|../*path_to_file/]file.xml&lt;import&gt;
+    &lt;/imports&gt;
+</pre>
+
+If no path given, then expect file to be in same directory as parent file. If 
+path begins .., then expect file to be in directory relative to parent file. If 
+path supplied, then expect file to be in that directory.  Thus the following are
+all valid:
+
+<pre>
+    myfile.xml
+    ../../path/to/file.xml
+    /path/to/file.xml
+</pre>
+
 #### NB
 
 All definition items are processed in the order that they appear in the XML file.
+Imports are processed first, by a L2R, depth first strategy.
 
 ### Build the ACL
 
 <pre>
-use chippyash\Zend\Acl\Xml\AclDirector;
-use chippyash\Type\String\StringType;
+    use chippyash\Zend\Acl\Xml\AclDirector;
+    use chippyash\Type\String\StringType;
 
-$location = new StringType('/location/of/my/acl.xml');
-$director = new AclDirector($location);
-$acl = $director->build();
+    $location = new StringType('/location/of/my/acl.xml');
+    $director = new AclDirector($location);
+    $acl = $director->build();
+</pre>
+
+Alternatively, you can pass in the XML to act on as a string, rather than a file.
+The string must of course conform to the zendacl.xsd (http://schema.zf4.biz/schema/zendacl)
+schema and be valid XML.
+
+<pre>
+    use chippyash\Zend\Acl\Xml\AclDirector;
+    use chippyash\Type\String\StringType;
+
+    $content = new StringType($myAclXml);
+    $director = new AclDirector($content);
+    $acl = $director->build();
 </pre>
 
 ### Changing the library
@@ -194,5 +226,10 @@ V0...  pre releases
 V1.0.0 First version
 
 V1.1.0 New feature: Namespaced the XSD and placed on public server
+
+V1.2.0 New features: 
+
+- ACL definitions can import other definitions
+- XML can be passed in as string as well as file
 
 

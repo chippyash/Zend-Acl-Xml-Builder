@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema 
+<xs:schema
     xmlns="http://schema.zf4.biz/schema/zendacl"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://schema.zf4.biz/schema/zendacl"
@@ -10,7 +10,7 @@
             <![CDATA[
       Zend ACL XML Services Schema, version 1.0
       Authors: Ashley Kitson
-      
+
       This defines a way to describe Zend\Permissions\ACLs.
     ]]></xs:documentation>
     </xs:annotation>
@@ -22,6 +22,13 @@
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="imports" type="importsType" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Containing element for importing other definitions
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
                 <xs:element name="roles" maxOccurs="1">
                     <xs:annotation>
                         <xs:documentation>
@@ -53,7 +60,7 @@
                         <xs:documentation>
                             Containing element for rules
                         </xs:documentation>
-                    </xs:annotation>                    
+                    </xs:annotation>
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="rule" type="ruleType" minOccurs="1"
@@ -126,4 +133,25 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:complexType name="importsType">
+        <xs:annotation>
+            <xs:documentation>
+                Sub acl definition imports container type
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="import" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" >
+                <xs:annotation>
+                    <xs:documentation>
+                        ACL XML file to import.  If no path given, then expect
+                        file to be in same directory as parent file. If path
+                        begins .., then expect file to be in directory relative
+                        to parent file. If path supplied, then expect file to
+                        be in that directory.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
 </xs:schema>

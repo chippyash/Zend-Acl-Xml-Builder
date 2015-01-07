@@ -62,4 +62,43 @@ class AclBuilderTest extends \PHPUnit_Framework_TestCase {
     {
         $sut = new AclBuilder(new StringType(__DIR__ . '/fixtures/badtest.xml'), $this->acl);
     }
+    
+    public function testBuildCanAcceptImportedDefinitionsWithChildFilesInSameDirectoryAsParent()
+    {
+        $this->object = new AclBuilder(new StringType(__DIR__ . '/fixtures/testimported.xml'), $this->acl);
+        $this->assertTrue($this->object->build());
+        
+        $this->assertTrue($this->acl->hasRole('guest'));
+        $this->assertTrue($this->acl->hasResource('logout'));
+        $this->assertTrue($this->acl->isAllowed('guest','login'));
+        $this->assertTrue($this->acl->isAllowed('user',null,'GET'));
+
+        $this->assertTrue($this->acl->isAllowed('guest','foo'));
+    }
+
+    public function testBuildCanAcceptImportedDefinitionsWithChildFilesInDirectoryRelativeToParent()
+    {
+        $this->object = new AclBuilder(new StringType(__DIR__ . '/fixtures/testimportedRelative.xml'), $this->acl);
+        $this->assertTrue($this->object->build());
+        
+        $this->assertTrue($this->acl->hasRole('guest'));
+        $this->assertTrue($this->acl->hasResource('logout'));
+        $this->assertTrue($this->acl->isAllowed('guest','login'));
+        $this->assertTrue($this->acl->isAllowed('user',null,'GET'));
+
+        $this->assertTrue($this->acl->isAllowed('guest','foo'));
+    }
+    
+    public function testBuildCanAcceptXMLAsString()
+    {
+        $content = file_get_contents(__DIR__ . '/fixtures/test.xml');
+
+        $this->object = new AclBuilder(new StringType($content), $this->acl);
+        $this->assertTrue($this->object->build());
+        
+        $this->assertTrue($this->acl->hasRole('guest'));
+        $this->assertTrue($this->acl->hasResource('logout'));
+        $this->assertTrue($this->acl->isAllowed('guest','login'));
+        $this->assertTrue($this->acl->isAllowed('user',null,'GET'));
+    }
 }
