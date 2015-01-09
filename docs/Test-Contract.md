@@ -9,6 +9,9 @@
 *  Build will create acl definition
 *  Build will throw exception if xml file is not found
 *  Build will throw exception if xml file is invalid
+*  Build can accept imported definitions with child files in same directory as parent
+*  Build can accept imported definitions with child files in directory relative to parent
+*  Build can accept x m l as string
 
 ## chippyash\Test\Zend\Acl\Xml\AclDirector
 
