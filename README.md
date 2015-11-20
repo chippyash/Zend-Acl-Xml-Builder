@@ -232,4 +232,6 @@ V1.2.0 New features:
 - ACL definitions can import other definitions
 - XML can be passed in as string as well as file
 
+V1.2.1 Remove hard dependency on Zend-ACL version
+
 
