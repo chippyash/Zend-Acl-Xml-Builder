@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acl xmlns="http://schema.zf4.biz/schema/zendacl"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://schema.zf4.biz/schema/zendacl http://schema.zf4.biz/schema/zendacl"
+     >
+    <imports>
+        <import>../fixtures2/import.xml</import>
+    </imports>
+    <roles>
+        <role parents="guest" type="Chippyash\Test\Zend\Acl\Xml\Stubs\TestRoleStub">user</role>
+        <role parents="user">admin</role>
+        <role parents="user,admin">superadmin</role>
+    </roles>
+    <resources>
+        <resource>login</resource>
+        <resource type="Chippyash\Test\Zend\Acl\Xml\Stubs\TestResourceStub">logout</resource>
+        <resource type="GenericResource">dashboard</resource>
+        <resource parent="dashboard">edit</resource>
+    </resources>
+    <rules>
+        <rule type="DENY"/>
+        <rule type="ALLOW" roles="*" resources="login" assertion="Chippyash\Test\Zend\Acl\Xml\Stubs\TestAssertionStub"/>
+        <rule type="ALLOW" roles="user,superadmin">
+            <privilege>GET</privilege>
+            <privilege>POST</privilege>
+        </rule>
+    </rules>
+</acl>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acl xmlns="http://schema.zf4.biz/schema/zendacl"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://schema.zf4.biz/schema/zendacl http://schema.zf4.biz/schema/zendacl"
+     >
+    <!-- No roles defined - will fail validation-->
+    <resources>
+        <resource>login</resource>
+        <resource type="Chippyash\Test\Zend\Acl\Xml\Stubs\TestResourceStub">logout</resource>
+        <resource type="GenericResource">dashboard</resource>
+        <resource parent="dashboard">edit</resource>
+    </resources>
+    <rules>
+        <rule type="DENY"/>
+        <rule type="ALLOW" roles="*" resources="login" assertion="Chippyash\Test\Zend\Acl\Xml\Stubs\TestAssertionStub"/>
+        <rule type="ALLOW" roles="user,superadmin">
+            <privilege>GET</privilege>
+            <privilege>POST</privilege>
+        </rule>
+    </rules>
+</acl>

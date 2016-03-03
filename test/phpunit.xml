@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-PHPUnit configuration file to run chippyash/zend-acl-xml-builder tests
+PHPUnit configuration file to run Chippyash/zend-acl-xml-builder tests
 -->
 
 <!--
@@ -41,7 +41,7 @@ testSuiteLoaderFile="/path/to/StandardTestSuiteLoader.php"
         <blacklist>
             <directory>../vendor</directory>
             <!-- don't cover exceptions - there is nothing to test -->
-            <directory>./src/chippyash/Zend/Acl/Xml/Exceptions</directory>
+            <directory>./src/Chippyash/Zend/Acl/Xml/Exceptions</directory>
         </blacklist>
     </filter>
 

@@ -143,8 +143,8 @@ Imports are processed first, by a L2R, depth first strategy.
 ### Build the ACL
 
 <pre>
-    use chippyash\Zend\Acl\Xml\AclDirector;
-    use chippyash\Type\String\StringType;
+    use Chippyash\Zend\Acl\Xml\AclDirector;
+    use Chippyash\Type\String\StringType;
 
     $location = new StringType('/location/of/my/acl.xml');
     $director = new AclDirector($location);
@@ -156,8 +156,8 @@ The string must of course conform to the zendacl.xsd (http://schema.zf4.biz/sche
 schema and be valid XML.
 
 <pre>
-    use chippyash\Zend\Acl\Xml\AclDirector;
-    use chippyash\Type\String\StringType;
+    use Chippyash\Zend\Acl\Xml\AclDirector;
+    use Chippyash\Type\String\StringType;
 
     $content = new StringType($myAclXml);
     $director = new AclDirector($content);
@@ -193,7 +193,7 @@ Install [Composer](https://getcomposer.org/)
 add
 
 <pre>
-    "chippyash/zend-acl-xml-builder": "~1.0"
+    "chippyash/zend-acl-xml-builder": "~2"
 </pre>
 
 to your composer.json "requires" section
@@ -233,5 +233,7 @@ V1.2.0 New features:
 - XML can be passed in as string as well as file
 
 V1.2.1 Remove hard dependency on Zend-ACL version
+
+V2.0.0 BC Break: change chippyash\Zend\Acl namespace to Chippyash\Zend\Acl 
 
 
