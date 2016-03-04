@@ -2,12 +2,18 @@
 
 ## Quality Assurance
 
+Certified for PHP 5.5+
+
 [![Build Status](https://travis-ci.org/chippyash/Zend-Acl-Xml-Builder.svg?branch=master)](https://travis-ci.org/chippyash/Zend-Acl-Xml-Builder)
 [![Test Coverage](https://codeclimate.com/github/chippyash/Zend-Acl-Xml-Builder/badges/coverage.svg)](https://codeclimate.com/github/chippyash/Zend-Acl-Xml-Builder/coverage)
 [![Code Climate](https://codeclimate.com/github/chippyash/Zend-Acl-Xml-Builder/badges/gpa.svg)](https://codeclimate.com/github/chippyash/Zend-Acl-Xml-Builder)
 
-Certified for PHP 5.5+
-
+The above badges represent the current development branch.  As a rule, I don't push
+ to GitHub unless tests, coverage and usability are acceptable.  This may not be
+ true for short periods of time; on holiday, need code for some other downstream
+ project etc.  If you need stable code, use a tagged version. Read 'Further Documentation'
+ and 'Installation'.
+ 
 [Test Contract](https://github.com/chippyash/Zend-Acl-Xml-Builder/blob/master/docs/Test-Contract.md) in the docs directory.
 
 ## What?
