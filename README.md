@@ -219,6 +219,16 @@ To run the tests:
 
 Check out the other packages at [my blog site](http://the-matrix.github.io/packages/) for more PHP stuff;
 
+## License
+
+This software library is released under the [GNU GPL V3 or later license](http://www.gnu.org/copyleft/gpl.html)
+
+This software library is Copyright (c) 2015-2016, Ashley Kitson, UK
+
+A commercial license is available for this software library, please contact the author. 
+It is normally free to deserving causes, but gets you around the limitation of the GPL
+license, which does not allow unrestricted inclusion of this code in commercial works.
+
 ## History
 
 V0...  pre releases
@@ -234,6 +244,8 @@ V1.2.0 New features:
 
 V1.2.1 Remove hard dependency on Zend-ACL version
 
-V2.0.0 BC Break: change chippyash\Zend\Acl namespace to Chippyash\Zend\Acl 
+V2.0.0 BC Break: change chippyash\Zend\Acl namespace to Chippyash\Zend\Acl
+
+V2.0.1 moved from coveralls to codeclimate
 
 
