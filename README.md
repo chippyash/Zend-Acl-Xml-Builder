@@ -224,7 +224,7 @@ To run the tests:
 
 ## Other stuff
 
-Check out the other packages at [my blog site](http://the-matrix.github.io/packages/) for more PHP stuff;
+Check out [ZF4 Packages](http://zf4.biz/packages?utm_source=github&utm_medium=web&utm_campaign=blinks&utm_content=zendaclxmlbuilder) for more packages
 
 ## License
 
@@ -254,5 +254,7 @@ V1.2.1 Remove hard dependency on Zend-ACL version
 V2.0.0 BC Break: change chippyash\Zend\Acl namespace to Chippyash\Zend\Acl
 
 V2.0.1 moved from coveralls to codeclimate
+
+V2.0.2 Add link to packages
 
 
