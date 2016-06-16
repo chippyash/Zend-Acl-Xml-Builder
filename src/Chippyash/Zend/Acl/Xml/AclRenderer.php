@@ -11,6 +11,7 @@ namespace Chippyash\Zend\Acl\Xml;
 
 use Chippyash\BuilderPattern\Renderer\PassthruRenderer;
 use Chippyash\BuilderPattern\BuilderInterface;
+use Zend\Permissions\Acl\Acl;
 
 /**
  * Returns the built ACL
@@ -21,7 +22,8 @@ class AclRenderer extends PassthruRenderer
      * Render the built data
      *
      * @param BuilderInterface $builder
-     * @return Zend\Permissions\Acl\Acl
+     *
+     * @return Acl
      */
     public function render(BuilderInterface $builder)
     {

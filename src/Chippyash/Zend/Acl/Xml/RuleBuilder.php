@@ -1,15 +1,12 @@
 <?php
-
 /*
  * Builder to build Acl from an XML file
  *
  * @copyright Ashley Kitson, UK, 2014
  * @license GPL3.0+
  */
-
 namespace Chippyash\Zend\Acl\Xml;
 
-use Chippyash\Zend\Acl\Xml\AbstractAclItemBuilder;
 use Zend\Permissions\Acl\Acl;
 
 /**

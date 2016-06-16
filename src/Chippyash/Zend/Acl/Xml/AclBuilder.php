@@ -16,6 +16,12 @@ use Chippyash\Zend\Acl\Xml\Exceptions\AclBuilderException;
 
 /**
  * Build a zend-permissions-acl from an XML definition
+ *
+ * @property \DOMDocument xml
+ * @property RoleBuilder roles
+ * @property Acl acl
+ * @property ResourceBuilder resources
+ * @property RuleBuilder rules
  */
 class AclBuilder extends AbstractBuilder
 {
@@ -45,10 +51,10 @@ class AclBuilder extends AbstractBuilder
     /**
      * Check for imports in the document and process them.
      * Converts imported xml into ACL and passes back to this builder.
-     * 
+     *
      * This is recursive so the end result is that we do a depth first leaf node
      * construction of the ACL
-     * 
+     *
      * @param string $basePath Path to directory of parent file
      */
     protected function processImports($basePath)
@@ -87,7 +93,7 @@ class AclBuilder extends AbstractBuilder
      *
      * @return \DOMDocument
      *
-     * @throws AclBuilderBuilderException
+     * @throws AclBuilderException
      */
     protected function loadDefinition($xmlFile, $xsdFile)
     {
@@ -101,17 +107,21 @@ class AclBuilder extends AbstractBuilder
         $defDom = new \DOMDocument();
         $defDom->validateOnParse = true;
         $options = LIBXML_NONET | (defined('LIBXML_COMPACT') ? LIBXML_COMPACT : 0);
-        if ($isString) {
-            $defDom->loadXML($xmlFile, $options);
-        } else {
-            $defDom->load($xmlFile, $options);
+        
+        switch ($isString) {
+            case true:
+                $defDom->loadXML($xmlFile, $options);
+                break;
+            default:
+                $defDom->load($xmlFile, $options);
         }
+        
         $prevSetting = \libxml_use_internal_errors(true);
         if (!$defDom->schemaValidate($xsdFile)) {
             $errors = \libxml_get_errors();
             $errMsg = '';
             foreach ($errors as $error) {
-                $errMsg .= $this->libxml_display_error($error);
+                $errMsg .= $this->libxmlDisplayError($error);
             }
             throw new AclBuilderException(sprintf(self::ERR_INVALID_ACL, $errMsg));
         }
@@ -136,10 +146,12 @@ class AclBuilder extends AbstractBuilder
 
     /**
      * @link http://php.net/manual/en/domdocument.schemavalidate.php
-     * @param type $error
-     * @return type
+     *
+     * @param \LibXMLError $error
+     *
+     * @return string
      */
-    protected function libxml_display_error(\LibXMLError $error)
+    protected function libxmlDisplayError(\LibXMLError $error)
     {
         $return = "";
         switch ($error->level) {

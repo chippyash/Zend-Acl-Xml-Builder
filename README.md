@@ -2,8 +2,9 @@
 
 ## Quality Assurance
 
-Certified for PHP 5.5+
-
+![PHP 5.5](https://img.shields.io/badge/PHP-5.5-blue.svg)
+![PHP 5.6](https://img.shields.io/badge/PHP-5.6-blue.svg)
+![PHP 7](https://img.shields.io/badge/PHP-7-blue.svg)
 [![Build Status](https://travis-ci.org/chippyash/Zend-Acl-Xml-Builder.svg?branch=master)](https://travis-ci.org/chippyash/Zend-Acl-Xml-Builder)
 [![Test Coverage](https://codeclimate.com/github/chippyash/Zend-Acl-Xml-Builder/badges/coverage.svg)](https://codeclimate.com/github/chippyash/Zend-Acl-Xml-Builder/coverage)
 [![Code Climate](https://codeclimate.com/github/chippyash/Zend-Acl-Xml-Builder/badges/gpa.svg)](https://codeclimate.com/github/chippyash/Zend-Acl-Xml-Builder)

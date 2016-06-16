@@ -1,15 +1,11 @@
 <?php
-
 /*
  * Builder to build Acl from an XML file
  * 
  * @copyright Ashley Kitson, UK, 2014
  * @license GPL3.0+
  */
-
 namespace Chippyash\Zend\Acl\Xml;
-
-use Chippyash\Zend\Acl\Xml\AbstractAclItemBuilder;
 
 /**
  * Build zend-permissions-acl roles from an XML definition
@@ -30,7 +26,7 @@ class RoleBuilder extends AbstractAclItemBuilder
 
     /**
      * Add roles to ACL
-     * 
+     *
      * @param \DOMNodeList $roles
      */
     protected function addRoles(\DOMNodeList $roles)
@@ -48,11 +44,8 @@ class RoleBuilder extends AbstractAclItemBuilder
 
             $roleName = $role->nodeValue;
 
-            if ($roleType !== 'GenericRole') {
-                $this->acl->addRole(new $roleType($roleName), $parents);
-            } else {
-                $this->acl->addRole($roleName, $parents);
-            }
+            $roleToAdd = ($roleType !== 'GenericRole' ? new $roleType($roleName) : $roleName);
+            $this->acl->addRole($roleToAdd, $parents);
         }
     }
 }

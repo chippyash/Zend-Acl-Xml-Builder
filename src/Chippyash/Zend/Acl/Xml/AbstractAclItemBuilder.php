@@ -11,6 +11,7 @@ namespace Chippyash\Zend\Acl\Xml;
 
 use Zend\Permissions\Acl\Acl;
 use Chippyash\BuilderPattern\AbstractBuilder;
+use Zend\Permissions\Acl\AclInterface;
 
 /**
  * Build a zend-permissions-acl from an XML definition
@@ -23,15 +24,17 @@ abstract class AbstractAclItemBuilder extends AbstractBuilder
     protected $dom;
 
     /**
-     * @var Zend\Permissions\Acl\Acl
+     * @var Acl
      */
     protected $acl;
 
     /**
      * Constructor
      *
-     * @param \DOMDocument $xquery
-     * @param AclInterface $acl
+     * @param \DOMDocument $dom
+     * @param Acl|AclInterface $acl
+     *
+     * @internal param \DOMDocument $xquery
      */
     public function __construct(\DOMDocument $dom, Acl $acl)
     {
@@ -46,7 +49,7 @@ abstract class AbstractAclItemBuilder extends AbstractBuilder
     protected function setBuildItems()
     {
         $this->buildItems = [
-            'result' => function() {
+            'result' => function () {
                 return $this->buildItem();
             }
         ];

@@ -1,15 +1,11 @@
 <?php
-
 /*
  * Builder to build Acl from an XML file
  *
  * @copyright Ashley Kitson, UK, 2014
  * @license GPL3.0+
  */
-
 namespace Chippyash\Zend\Acl\Xml;
-
-use Chippyash\Zend\Acl\Xml\AbstractAclItemBuilder;
 
 /**
  * Build zend-permissions-acl resources from an XML definition
@@ -37,10 +33,6 @@ class ResourceBuilder extends AbstractAclItemBuilder
     {
         foreach ($resources as $resource) {
             $parent = null;
-            if ($resource->hasAttribute('parent')) {
-                $parents = explode(',', $resource->getAttribute('parent'));
-            }
-
             $resourceType = 'GenericResource';
             if ($resource->hasAttribute('type')) {
                 $resourceType = $resource->getAttribute('type');
@@ -50,9 +42,10 @@ class ResourceBuilder extends AbstractAclItemBuilder
 
             if ($resourceType !== 'GenericResource') {
                 $this->acl->addResource(new $resourceType($resourceName), $parent);
-            } else {
-                $this->acl->addResource($resourceName, $parent);
+                continue;
             }
+
+            $this->acl->addResource($resourceName, $parent);
         }
     }
 }
