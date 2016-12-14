@@ -1,28 +1,39 @@
 {
-    "name": "chippyash/zend-acl-xml-builder",
-    "description": "Configuration of Zend 2 Acl instances using XML",
-    "homepage" : "http://zf4.biz/packages?utm_source=packagist&utm_medium=web&utm_campaign=blinks&utm_content=zendaclxmlbuilder",
-    "license": "GPL 3.0",
-    "keywords": ["zend","acl","builder","configurator","xml"],    
-    "authors": [
-        {
-            "name": "Ashley Kitson",
-            "email": "ashley@zf4.biz"
-        }
-    ],
-    "require": {
-        "php":">=5.5",
-        "zendframework/zend-permissions-acl":"*",
-        "chippyash/strong-type": "~3",
-        "chippyash/builderpattern": "~2"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~4.3.0",
-        "codeclimate/php-test-reporter": "dev-master"
-    },
-    "autoload": {
-        "psr-0": {
-            "Chippyash\\Zend\\Acl\\": "src"
-        }
+  "name": "chippyash/zend-acl-xml-builder",
+  "description": "Configuration of Zend 2 Acl instances using XML",
+  "homepage": "http://zf4.biz/packages?utm_source=packagist&utm_medium=web&utm_campaign=blinks&utm_content=zendaclxmlbuilder",
+  "license": "GPL 3.0",
+  "keywords": [
+    "zend",
+    "acl",
+    "builder",
+    "configurator",
+    "xml"
+  ],
+  "authors": [
+    {
+      "name": "Ashley Kitson",
+      "email": "ashley@zf4.biz"
     }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "zendframework/zend-permissions-acl": ">=2.6.0, <2.7.0",
+    "chippyash/strong-type": "~3",
+    "chippyash/builderpattern": "~2"
+  },
+  "require-dev": {
+    "ext-xsl": "*",
+    "phpunit/phpunit": "~4.3.0",
+    "codeclimate/php-test-reporter": "0.3.*",
+    "mikey179/vfsstream": "~1.6.4"
+  },
+  "suggest": {
+    "ext-xsl": "XSL transformation support for Translators"
+  },
+  "autoload": {
+    "psr-0": {
+      "Chippyash\\Zend\\Acl\\": "src"
+    }
+  }
 }
