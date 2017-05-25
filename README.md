@@ -260,4 +260,7 @@ V2.0.2 Add link to packages
 
 V2.0.3 Verify PHP 7 compatibility
 
+V2.0.4 Update dependencies
+
+
 
