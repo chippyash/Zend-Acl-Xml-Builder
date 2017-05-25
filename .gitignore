@@ -2,3 +2,5 @@ nbproject*
 vendor*
 .directory
 .idea
+zend-acl-builder.xpr
+composer.lock
