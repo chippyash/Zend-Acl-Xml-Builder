@@ -34,7 +34,7 @@ testSuiteLoaderFile="/path/to/StandardTestSuiteLoader.php"
          verbose="false">
 
     <testsuites>
-        <testsuite name="chippyash/Matrix Test Suite">
+        <testsuite name="chippyash/Zend Acl Builder Test Suite">
             <directory phpVersion="5.4.0" phpVersionOperator=">=">./test/src/</directory>
         </testsuite>
     </testsuites>
@@ -43,14 +43,21 @@ testSuiteLoaderFile="/path/to/StandardTestSuiteLoader.php"
      ! blacklist and whitelist for the code coverage reporting.
      !-->
     <filter>
-        <blacklist>
-            <directory>./vendor</directory>
-            <!-- don't cover exceptions - there is nothing to test -->
-            <directory>./test/src/chippyash/Zend/Acl/Xml/Exceptions</directory>
-        </blacklist>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory>./src</directory>
+            <exclude>
+                <directory>./docs</directory>
+                <directory>./test</directory>
+                <directory>./vendor</directory>
+                <!-- don't cover exceptions - there is nothing to test -->
+                <directory>./test/src/chippyash/Zend/Acl/Xml/Exceptions</directory>
+            </exclude>
+        </whitelist>
     </filter>
 
-
+    <logging>
+        <log type="coverage-clover" target="./build/logs/clover.xml"/>
+    </logging>
 </phpunit>
 
 
