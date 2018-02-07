@@ -269,5 +269,8 @@ V2.0.3 Verify PHP 7 compatibility
 
 V2.0.4 Update dependencies
 
+V2.0.5 update composer - forced by packagist composer.json format change
+
+
 
 
