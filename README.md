@@ -2,7 +2,6 @@
 
 ## Quality Assurance
 
-![PHP 5.5](https://img.shields.io/badge/PHP-5.5-blue.svg)
 ![PHP 5.6](https://img.shields.io/badge/PHP-5.6-blue.svg)
 ![PHP 7](https://img.shields.io/badge/PHP-7-blue.svg)
 [![Build Status](https://travis-ci.org/chippyash/Zend-Acl-Xml-Builder.svg?branch=master)](https://travis-ci.org/chippyash/Zend-Acl-Xml-Builder)
@@ -17,12 +16,8 @@ The above badges represent the current development branch.  As a rule, I don't p
  
 [Test Contract](https://github.com/chippyash/Zend-Acl-Xml-Builder/blob/master/docs/Test-Contract.md) in the docs directory.
 
-### End of life notice
-
-In March 2018, developer support will be withdrawn from this library for PHP <5.6. Older
-versions of PHP are now in such little use that the added effort of maintaining 
-compatibility is not effort effective.  See [PHP Version Stats](https://seld.be/notes/php-versions-stats-2017-1-edition)
- for the numbers.
+Please note that developer support for PHP5.5 was withdrawn at version 3.0.0 of this library.
+If you need support for PHP 5.5, please use a version `>=2,<3`
  
 ## What?
 
@@ -208,7 +203,7 @@ Install [Composer](https://getcomposer.org/)
 add
 
 <pre>
-    "chippyash/zend-acl-xml-builder": "~2"
+    "chippyash/zend-acl-xml-builder": ">=3,<4"
 </pre>
 
 to your composer.json "requires" section
@@ -270,6 +265,8 @@ V2.0.3 Verify PHP 7 compatibility
 V2.0.4 Update dependencies
 
 V2.0.5 update composer - forced by packagist composer.json format change
+
+V3.0.0 BC Break. Withdraw support for old PHP versions
 
 
 
