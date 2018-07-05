@@ -25,8 +25,6 @@ Provides the ability to specify a [Zend ACL](http://framework.zend.com/manual/cu
 using XML. The XML is validated by an XSD file which you can also use in your XML 
 editor
 
-The library is released under the [GNU GPL V3 or later license](http://www.gnu.org/copyleft/gpl.html)
-
 ## Why?
 
 Zend/Permissions/Acl is a great and lightweight way of providing access control to your
@@ -264,7 +262,9 @@ V2.0.5 update composer - forced by packagist composer.json format change
 
 V3.0.0 BC Break. Withdraw support for old PHP versions
 
-V3.0.1 LICENSE.md
+V3.1.0 Change of license from GPL V3 to BSD 3 Clause
+
+V3.1.1 readme update 
 
 
 
